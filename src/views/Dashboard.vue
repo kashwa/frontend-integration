@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     
-    Home
+    Dashboard
 
   </div>
 </template>
@@ -9,7 +9,7 @@
 <script>
 
 export default {
-  name: 'home',
+  name: 'dashboard',
   components: {
     
   }
