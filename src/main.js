@@ -5,6 +5,8 @@ import store from './store'
 import axios from 'axios'
 import '@/assets/styles/app.css'
 
+require('@/store/subscriber')
+
 // Set Default-Base-URL for Axios.
 axios.defaults.baseURL = 'http://localhost:8080/backend-integration/public/api/'
 

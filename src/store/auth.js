@@ -39,11 +39,7 @@ export default {
             commit('SET_TOKEN', token)
 
             try {
-                let response = await axios.post('auth/me', null, {
-                    headers: {
-                        'Authorization': 'Bearer ' + token
-                    }
-                })
+                let response = await axios.post('auth/me')
 
                 commit('SET_USER', response.data)
             } catch (error) {
