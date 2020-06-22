@@ -19,15 +19,16 @@
       </div>
       <div class="mb-6">
         <label class="block text-gray-300 text-sm font-bold mb-2" for="password">Password</label>
+         <!-- class='border-red-500' -->
         <input
-          class="shadow appearance-none border-2 border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          class="shadow appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
           id="password"
           type="password"
           name="password"
           placeholder="******************"
           v-model="form.password"
         />
-        <p class="text-red-500 text-xs italic">Please choose a password.</p>
+        <!-- <p class="text-red-500 text-xs italic">Please choose a password.</p> -->
       </div>
       <div class="flex items-center justify-between">
         <button
@@ -49,7 +50,7 @@
 </template>
 
 <script>
-  import axios from 'axios'
+import { mapActions } from 'vuex'
 
   export default {
     name: "signin",
@@ -63,12 +64,11 @@
       }
     },
     methods: {
-      async submit() {
-        axios
-          .post('auth/login', this.form)
-          .then((res) => {
-            console.log(res.data.response.token)
-          })
+      ...mapActions({
+        signIn: 'auth/signIn'
+      }),
+      submit() {
+        this.signIn(this.form)
       }
     }
   };
