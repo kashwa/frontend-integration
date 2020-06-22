@@ -3,7 +3,7 @@
     <br />
     <!-- <div class="w-full max-w-sm mx-auto"> -->
     <form
-      class="w-full max-w-sm mx-auto bg-gray-800 shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      class="w-full max-w-sm mx-auto bg-gray-800 shadow-md rounded px-8 pt-6 pb-8 mb-4 mt-20"
       @submit.prevent="submit"
     >
       <div class="mb-4">
@@ -64,11 +64,19 @@ import { mapActions } from 'vuex'
       }
     },
     methods: {
-      ...mapActions({
-        signIn: 'auth/signIn'
+      ...mapActions('auth', { // auth => is the namespaced module i want to call methods from.
+        signIn: 'signIn'
       }),
       submit() {
         this.signIn(this.form)
+          .then(() => {
+            this.$router.replace({
+              name: 'dashboard'
+            })
+          })
+          .catch(() => {
+            alert('Error in credentials!')
+          })
       }
     }
   };
