@@ -51,11 +51,12 @@
           :to="'signin'"
         >Sign In</router-link>
 
-        <router-link
+        <a
           v-if="authenticated"
           class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
-          :to="'signin'"
-        >Sign Out</router-link>
+          href="#"
+          @click.prevent="signOut"
+        >Sign Out</a>
       </div>
     </div>
   </nav>
@@ -73,7 +74,7 @@
 </style>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   computed: {
@@ -81,6 +82,18 @@ export default {
       authenticated: "authenticated",
       user: "user"
     })
+  },
+  methods: {
+    ...mapActions('auth', {
+      signOutAction: 'signOut'
+    }),
+    signOut() {
+      this.signOutAction().then(() => {
+        this.$router.replace({
+          name: 'home'
+        })
+      })
+    }
   }
 };
 </script>
