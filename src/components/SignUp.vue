@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home mt-10">
     <br />
     <form class="w-full max-w-sm bg-gray-800 p-10 mx-auto rounded-md">
       <div class="md:flex md:items-center mb-6">

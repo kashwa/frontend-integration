@@ -1,26 +1,22 @@
 <template>
   <div id="app">
-    
     <TheNavigation />
     <router-view />
-
-    <!-- <SignIn /> -->
-    <!-- <SignUp /> -->
   </div>
 </template>
 
-<style></style>
+<style>
+  body{
+    background-color: #C6F6D5;
+  }
+</style>
 
 <script>
 import TheNavigation from '@/components/TheNavigation'
-import SignIn from '@/views/SignIn'
-import SignUp from '@/components/SignUp'
 
   export default {
     components: {
-      TheNavigation,
-      // SignIn,
-      // SignUp
+      TheNavigation
     }
   }
 </script>

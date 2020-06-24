@@ -43,7 +43,7 @@
       </div>
     </form>
     <p
-      class="text-center text-gray-500 text-xs"
+      class="text-center text-black font-bold text-xs"
     >&copy;2020 Frontend-Integration. All rights reserved.</p>
     <!-- </div> -->
   </div>
